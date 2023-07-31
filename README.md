@@ -1,9 +1,8 @@
 # contact_manager
-Contact_List_Api
 Sistema de Gerenciamento de Clientes e Contatos
 
 Descrição
-O Projeto é um sistema de gerenciamento de clientes e contatos, construído utilizando NodeJS e TypeScript. Ele fornece uma API RESTful que permite a criação, edição e exclusão de clientes e seus respectivos contatos. O projeto utiliza o banco de dados PostgreSQL para armazenar os dados e o TypeORM como ORM (Object-Relational Mapping) para facilitar a interação com o banco de dados. As requisições são autenticadas usando tokens gerados através do endpoint /login.
+O Projeto é um sistema de gerenciamento de clientes e contatos, construído utilizando NodeJS e TypeScript. Ele fornece uma API REST que permite a criação, edição e exclusão de clientes e seus respectivos contatos. O projeto utiliza o banco de dados PostgreSQL para armazenar os dados e o Nest e o Prisma para facilitar a interação com o banco de dados.
 
 Tecnologias
 O projeto foi desenvolvido utilizando as seguintes tecnologias:
@@ -13,8 +12,8 @@ Nest
 TypeScript
 PostgreSQL
 Prisma
-Instalação e Uso
-Requisitos:
+
+#Instalação e Uso Requisitos:
 NodeJS
 Npm ou Yarn
 Banco de dados PostgreSQL
