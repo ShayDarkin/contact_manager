@@ -13,7 +13,7 @@ TypeScript
 PostgreSQL
 Prisma
 
-#Instalação e Uso Requisitos:
+# Instalação e Uso Requisitos:
 NodeJS
 Npm ou Yarn
 Banco de dados PostgreSQL
