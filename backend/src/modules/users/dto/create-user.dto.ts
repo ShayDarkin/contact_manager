@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, MaxLength } from 'class-validator';
+import { hashSync } from 'bcryptjs';
+import { Transform } from 'class-transformer';
+import { IsEmail, IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateUserDto {
   @ApiProperty({
@@ -8,6 +10,7 @@ export class CreateUserDto {
     type: String,
   })
   @IsString()
+  @IsNotEmpty()
   fullName: string;
 
   @ApiProperty({
@@ -16,7 +19,20 @@ export class CreateUserDto {
     type: String,
   })
   @IsEmail()
+  @IsNotEmpty()
   email: string;
+
+  @ApiProperty({
+    description: 'Senha do Usuario',
+    default: '123456',
+    type: String,
+  })
+  @IsString()
+  @IsNotEmpty()
+  @Transform(({ value }: { value: string }) => hashSync(value, 10), {
+    groups: ['transform'],
+  })
+  password: string;
 
   @ApiProperty({
     description: 'Numero do Usuario',
@@ -25,5 +41,6 @@ export class CreateUserDto {
   })
   @IsString()
   @MaxLength(14)
+  @IsNotEmpty()
   telefone: string;
 }

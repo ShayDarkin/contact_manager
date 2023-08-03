@@ -10,12 +10,19 @@ async function bootstrap() {
     .setTitle('Contacts Manager')
     .setDescription('application to manage customers and their contact book')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
+  app.useGlobalPipes(
+    new ValidationPipe({ whitelist: true }),
+    new ValidationPipe({
+      transform: true,
+      transformOptions: { groups: ['transform'] },
+    }),
+  );
   await app.listen(3000);
 }
 bootstrap();

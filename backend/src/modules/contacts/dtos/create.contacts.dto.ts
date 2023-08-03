@@ -26,12 +26,4 @@ export class CreateContactDto {
   @IsString()
   @MaxLength(14)
   telefone: string;
-
-  @ApiProperty({
-    description: 'Id do Usuario',
-    default: 'acf8y-adf8-assf9-assd8',
-    type: String,
-  })
-  @IsString()
-  userId: string;
 }

@@ -9,10 +9,11 @@ import { Contact } from '../../entities/contacts.entity';
 export class ContactsPrismaRepository implements ContactsRepository {
   constructor(private prisma: PrismaService) {}
 
-  async create(data: CreateContactDto): Promise<Contact> {
+  async create(data: CreateContactDto, userId: string): Promise<Contact> {
     const contact = new Contact();
     Object.assign(contact, {
       ...data,
+      userId: userId,
     });
     const newContact = await this.prisma.contact.create({
       data: { ...contact },
